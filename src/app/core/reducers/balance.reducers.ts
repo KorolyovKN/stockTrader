@@ -57,6 +57,7 @@ export function reducer (state: State = initialState, action: BalanceActionUnion
       case BalanceActionTypes.UpdateBalanceError: {
         draftState.pending = false;
         draftState.error = action.payload;
+        return;
       }
     }
   });

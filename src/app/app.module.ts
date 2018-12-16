@@ -1,10 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {
+StoreRouterConnectingModule,
+RouterStateSerializer
+} from '@ngrx/router-store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { reducers, metaReducers } from './reducers';
+import { environment } from '../environments/environment';
 
 import { CoreModule } from './core/core.module';
+import {CustomRouterStateSerializer} from './shared/utils/custom-router-state-serializer';
 
 @NgModule({
   declarations: [
@@ -13,9 +22,18 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreRouterConnectingModule.forRoot({
+      /*
+        They stateKey defines the name of the state used by the router-store reducer.
+        This matches the key defined in the map of reducers
+      */
+      stateKey: 'router'
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  providers: [{ provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

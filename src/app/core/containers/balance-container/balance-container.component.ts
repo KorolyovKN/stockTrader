@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
+
+import * as fromRoot from '../../../reducers';
+import * as BalanceActions from '../../actions/balance.actions';
 
 @Component({
   selector: 'app-balance-container',
@@ -7,9 +10,12 @@ import { Store } from '@ngrx/store';
 })
 export class BalanceContainerComponent implements OnInit {
 
+  $userBalance = this.store.pipe(select(fromRoot.getUserBalance));
+
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
+    this.store.dispatch(new BalanceActions.LoadBalance);
   }
 
 }
