@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
 StoreRouterConnectingModule,
@@ -21,6 +23,7 @@ import {CustomRouterStateSerializer} from './shared/utils/custom-router-state-se
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers }),
@@ -31,6 +34,7 @@ import {CustomRouterStateSerializer} from './shared/utils/custom-router-state-se
       */
       stateKey: 'router'
     }),
+    EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }],

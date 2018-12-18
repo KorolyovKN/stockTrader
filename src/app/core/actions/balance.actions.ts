@@ -6,6 +6,8 @@ export enum BalanceActionTypes {
   LoadBalanceError = '[Balance] Load Balance Error',
   BalanceIncrease = '[Balance] Balance Increase',
   BalanceDecrease = '[Balance] Balance Decrease',
+  BalanceLowCredit = '[Balance] Balance Low Credit',
+  BalanceHiCredit = '[Balance] Balance Hi Credit',
   UpdateBalance = '[Balance] Update Balance',
   UpdateBalanceSuccess = '[Balance] Update Balance Success',
   UpdateBalanceError = '[Balance] Balance Update Error'
@@ -38,6 +40,20 @@ export class BalanceIncrease implements Action {
 
 export class BalanceDecrease implements Action {
   readonly type = BalanceActionTypes.BalanceDecrease;
+
+  constructor(public payload: number) {
+  }
+}
+
+export class BalanceLowCredit implements Action {
+  readonly type = BalanceActionTypes.BalanceLowCredit;
+
+  constructor(public payload: number) {
+  }
+}
+
+export class BalanceHiCredit implements Action {
+  readonly type = BalanceActionTypes.BalanceHiCredit;
 
   constructor(public payload: number) {
   }

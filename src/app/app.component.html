@@ -16,5 +16,11 @@
   </div>
   <app-balance-container class="pull-right"></app-balance-container>
 </nav>
+<div style="padding-top: 100px;">
 
-<router-outlet></router-outlet>
+  <button (click)="balancePlus()">+</button>
+  <button (click)="balanceMinus()">-</button>
+
+  <router-outlet></router-outlet>
+</div>
+

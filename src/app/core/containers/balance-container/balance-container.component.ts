@@ -10,7 +10,7 @@ import * as BalanceActions from '../../actions/balance.actions';
 })
 export class BalanceContainerComponent implements OnInit {
 
-  $userBalance = this.store.pipe(select(fromRoot.getUserBalance));
+  userBalance$ = this.store.pipe(select(fromRoot.getUserBalance));
 
   constructor(private store: Store<any>) { }
 

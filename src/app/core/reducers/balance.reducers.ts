@@ -39,7 +39,9 @@ export function reducer (state: State = initialState, action: BalanceActionUnion
       }
 
       case BalanceActionTypes.BalanceDecrease: {
-        draftState.userBalance -= action.payload;
+        if (draftState.userBalance >= action.payload) {
+          draftState.userBalance -= action.payload;
+        }
         return;
       }
 
