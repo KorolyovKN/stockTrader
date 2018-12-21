@@ -1,0 +1,31 @@
+<div class="spinner-holder" *ngIf="pending"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+
+<table *ngIf="!pending" style="width: 100%;">
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>
+      <select (change)="changeCategory($event.target.value)">
+        <option value="null">Select category</option>
+        <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+      </select>
+    </th>
+    <th></th>
+  </tr>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let market of markets">
+    <td>{{market.name}}</td>
+    <td>{{market.category}}</td>
+    <td>{{market.price}}</td>
+    <td><button (click)="onPurchase(market.price)">buy</button></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,7 +1,21 @@
 {
   "userBalance": {
-    "balance": 200
+    "balance": 284.2
   },
+  "stocksCategories": [
+    "Consumer Services",
+    "Finance",
+    "Public Utilities",
+    "Health Care",
+    "Technology",
+    "n/a",
+    "Basic Industries",
+    "Capital Goods",
+    "Energy",
+    "Consumer Non-Durables",
+    "Transportation",
+    "Technology"
+  ],
   "stocks": [
     {
       "id": 1,

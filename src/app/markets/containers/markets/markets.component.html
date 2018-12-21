@@ -1,0 +1,8 @@
+<app-markets-list
+  [markets]="markets$ | async"
+  [pending]="pending$ | async"
+  [error]="error$ | async"
+  [categories]="categories$ | async"
+  (purchased)="onPushase($event)"
+  (changedCategory)="onReload($event)"
+></app-markets-list>
