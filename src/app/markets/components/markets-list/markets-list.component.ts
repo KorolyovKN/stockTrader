@@ -13,15 +13,15 @@ export class MarketsListComponent implements OnInit {
   @Input() error: string | null;
   @Input() categories: Array<string>;
 
-  @Output() purchased = new EventEmitter<number>();
+  @Output() purchased = new EventEmitter<Object>();
   @Output() changedCategory = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
   }
-  onPurchase(event) {
-    this.purchased.emit(event);
+  onPurchase(market, quantity) {
+    this.purchased.emit({market: market, quantity: quantity});
   }
   changeCategory($event) {
     this.changedCategory.emit($event);

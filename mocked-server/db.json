@@ -1,6 +1,6 @@
 {
   "userBalance": {
-    "balance": 284.2
+    "balance": 850.5200000000002
   },
   "stocksCategories": [
     "Consumer Services",
@@ -15,6 +15,80 @@
     "Consumer Non-Durables",
     "Transportation",
     "Technology"
+  ],
+  "portfolios": [
+    {
+      "id": 1,
+      "marketId": 3,
+      "name": "Fortis Inc.",
+      "category": "Public Utilities",
+      "price": "122.28",
+      "quantity": "2"
+    },
+    {
+      "id": 4691,
+      "marketId": 5,
+      "name": "Bloomin&#39; Brands, Inc.",
+      "category": "Consumer Services",
+      "price": "98.54",
+      "quantity": "2"
+    },
+    {
+      "id": 4692,
+      "marketId": 8,
+      "name": "Boardwalk Pipeline Partners L.P.",
+      "category": "Public Utilities",
+      "price": "217.26",
+      "quantity": "4"
+    },
+    {
+      "id": 927,
+      "marketId": 4,
+      "name": "National General Holdings Corp",
+      "category": "Finance",
+      "price": "362.14",
+      "quantity": "1"
+    },
+    {
+      "id": 1718,
+      "marketId": 6,
+      "name": "Tivity Health, Inc.",
+      "category": "Health Care",
+      "price": "255.55",
+      "quantity": "4"
+    },
+    {
+      "id": 1875,
+      "marketId": 5,
+      "name": "Bloomin&#39; Brands, Inc.",
+      "category": "Consumer Services",
+      "price": "98.54",
+      "quantity": "2"
+    },
+    {
+      "id": 1088,
+      "marketId": 5,
+      "name": "Bloomin&#39; Brands, Inc.",
+      "category": "Consumer Services",
+      "price": "98.54",
+      "quantity": "1"
+    },
+    {
+      "id": 4878,
+      "marketId": 4,
+      "name": "National General Holdings Corp",
+      "category": "Finance",
+      "price": "362.14",
+      "quantity": "2"
+    },
+    {
+      "id": 3865,
+      "marketId": 3,
+      "name": "Fortis Inc.",
+      "category": "Public Utilities",
+      "price": "122.28",
+      "quantity": "2"
+    }
   ],
   "stocks": [
     {

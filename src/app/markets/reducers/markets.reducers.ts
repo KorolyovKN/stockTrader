@@ -12,6 +12,7 @@ export interface State extends EntityState<Market> {
   // additional entities state properties
   error: string | null;
   pending: boolean;
+  purchasePending: boolean;
   count: number;
   categories: string[];
 }
@@ -25,6 +26,7 @@ export const marketsEntityAdapter: EntityAdapter<Market> =
 export const initialState: State = marketsEntityAdapter.getInitialState({
   error: null,
   pending: false,
+  purchasePending: false,
   count: 0,
   categories: [],
 });
@@ -77,6 +79,29 @@ export function redicer(state = initialState, action: MarketsActionsUnion): Stat
         error: action.payload,
         pending: false,
         count: 0
+      };
+    }
+
+    case MarketsActionTypes.MarketPurchase: {
+      return {
+        ...state,
+        error: null,
+        purchasePending: true,
+      };
+    }
+
+    case MarketsActionTypes.MarketPurchaseSuccess: {
+      return {
+        ...state,
+        purchasePending: false,
+      };
+    }
+
+    case MarketsActionTypes.MarketPurchaseError: {
+      return {
+        ...state,
+        error: action.payload,
+        purchasePending: false,
       };
     }
 

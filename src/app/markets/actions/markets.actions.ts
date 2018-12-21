@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 
 import { Market } from '../models/market';
 import { LoadListSuccessPayload, LoadListPayload } from '../../shared/models/list';
+import {Portfolio} from '../../shared/models/portfolio';
 
 export enum MarketsActionTypes {
   LoadMarkets = '[Markets] Load Markets',
@@ -10,6 +11,9 @@ export enum MarketsActionTypes {
   LoadMarketsCategories = '[Markets] Load Markets Categories',
   LoadMarketsCategoriesSuccess = '[Markets] Load Markets Categories Success',
   LoadMarketsCategoriesError = '[Markets] Load Markets Categories Error',
+  MarketPurchase = '[Markets] Market Purchase',
+  MarketPurchaseSuccess = '[Markets] Market Purchase Success',
+  MarketPurchaseError = '[Markets] Market Purchase Error'
 }
 
 export class LoadMarkets implements Action {
@@ -51,6 +55,27 @@ export class LoadMarketsCategoriesError implements Action {
   }
 }
 
+
+export class MarketPurchase implements Action {
+  readonly type = MarketsActionTypes.MarketPurchase;
+
+  constructor(public payload: Portfolio) {
+  }
+}
+
+export class MarketPurchaseSuccess implements Action {
+  readonly type = MarketsActionTypes.MarketPurchaseSuccess;
+  constructor(public payload: Portfolio) {
+  }
+}
+
+export class MarketPurchaseError implements Action {
+  readonly type = MarketsActionTypes.MarketPurchaseError;
+
+  constructor(public payload: string) {
+  }
+}
+
 export type MarketsActionsUnion =
   | LoadMarkets
   | LoadMarketsSuccess
@@ -58,4 +83,7 @@ export type MarketsActionsUnion =
   | LoadMarketsCategories
   | LoadMarketsCategoriesSuccess
   | LoadMarketsCategoriesError
+  | MarketPurchase
+  | MarketPurchaseSuccess
+  | MarketPurchaseError
 ;

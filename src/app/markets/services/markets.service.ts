@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Market } from '../models/market';
 import {map, tap} from 'rxjs/internal/operators';
 import {Filters, LoadListPayload, LoadListSuccessPayload, SerializedFilters} from '../../shared/models/list';
+import {Portfolio} from '../../shared/models/portfolio';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,9 @@ export class MarketsService {
         data: response.body
       }))
     );
+  }
+
+  purchaseMarket(payload: Portfolio): Observable<Portfolio> {
+    return this.http.post<Portfolio>('/api/portfolios', payload);
   }
 }

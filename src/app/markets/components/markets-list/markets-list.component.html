@@ -12,11 +12,13 @@
       </select>
     </th>
     <th></th>
+    <th></th>
   </tr>
     <tr>
       <th>Name</th>
       <th>Price</th>
       <th>Category</th>
+      <th>Quantity</th>
       <th></th>
     </tr>
   </thead>
@@ -25,7 +27,8 @@
     <td>{{market.name}}</td>
     <td>{{market.category}}</td>
     <td>{{market.price}}</td>
-    <td><button (click)="onPurchase(market.price)">buy</button></td>
+    <td><input type="number" id="quantity" name="quantity" placeholder="0" min="0" #quantity></td>
+    <td><button (click)="onPurchase(market, quantity.value)">buy</button></td>
   </tr>
   </tbody>
 </table>

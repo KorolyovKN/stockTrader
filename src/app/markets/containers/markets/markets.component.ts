@@ -3,8 +3,9 @@ import {select, Store} from '@ngrx/store';
 
 import * as MarketsActions from '../../actions/markets.actions';
 import * as fromMarkets from '../../reducers';
-import * as coreActions from '../../../core/actions/balance.actions';
 import {LoadListPayload, Filters} from '../../../shared/models/list';
+import {Portfolio} from '../../../shared/models/portfolio';
+import {id} from '../../../shared/utils/id';
 
 @Component({
   selector: 'app-markets',
@@ -27,7 +28,15 @@ export class MarketsComponent implements OnInit {
   }
 
   onPushase($event) {
-    this.store.dispatch(new coreActions.BalanceDecrease($event));
+    const portfolio: Portfolio = {
+      id: id(),
+      marketId: $event.market.id,
+      name: $event.market.name,
+      category: $event.market.category,
+      price: $event.market.price,
+      quantity: $event.quantity,
+    };
+    this.store.dispatch(new MarketsActions.MarketPurchase(portfolio));
   }
 
   onReload($event) {

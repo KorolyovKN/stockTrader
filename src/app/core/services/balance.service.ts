@@ -29,7 +29,7 @@ export class BalanceService {
     };
     const httpPayload = {
       'balance': payload
-    }
+    };
 
     return this.http.put<any>('api/userBalance', httpPayload, httpOptions)
       .pipe(
