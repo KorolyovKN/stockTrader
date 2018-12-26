@@ -3,6 +3,6 @@ export interface Portfolio {
   marketId: number;
   name: string;
   category: string;
-  price: number;
-  quantity: number;
+  price: string;
+  quantity: string;
 }

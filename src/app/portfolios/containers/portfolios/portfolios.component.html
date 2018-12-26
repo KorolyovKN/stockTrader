@@ -1,0 +1,6 @@
+<app-portfolios-list
+  [portfolios]="portfolios$ | async"
+  [pending]="pending$ | async"
+  [error]="error$ | async"
+  (selling)="onSell($event)"
+></app-portfolios-list>

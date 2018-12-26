@@ -14,7 +14,7 @@ export class MarketsService {
   constructor(protected http: HttpClient) {
   }
 
-  protected serializeFilter(filters: Filters): SerializedFilters {
+  private serializeFilter(filters: Filters): SerializedFilters {
     if (filters === null) {
       return {};
     }
@@ -26,8 +26,6 @@ export class MarketsService {
         filterObj[String(k)] = v;
       }
     });
-
-    console.log(filterObj);
 
     return filterObj;
   }

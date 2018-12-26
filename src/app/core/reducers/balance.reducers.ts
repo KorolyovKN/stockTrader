@@ -34,13 +34,15 @@ export function reducer (state: State = initialState, action: BalanceActionUnion
       }
 
       case BalanceActionTypes.BalanceIncrease: {
-        draftState.userBalance += action.payload;
+        const balance = draftState.userBalance + action.payload;
+        draftState.userBalance = Math.round(balance * 100) / 100;
         return;
       }
 
       case BalanceActionTypes.BalanceDecrease: {
         if (draftState.userBalance >= action.payload) {
-          draftState.userBalance -= action.payload;
+          const balance = draftState.userBalance - action.payload;
+          draftState.userBalance = Math.round(balance * 100) / 100;
         }
         return;
       }

@@ -6,11 +6,11 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Markets</a>
+      <li class="nav-item active" routerLink="/markets" [routerLinkActive]="'active'">
+        <a class="nav-link">Markets</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Portfolio</a>
+      <li class="nav-item" routerLink="/portfolios" [routerLinkActive]="'active'">
+        <a class="nav-link">Portfolio</a>
       </li>
     </ul>
   </div>

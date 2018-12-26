@@ -1,0 +1,26 @@
+<div class="spinner-holder" *ngIf="pending"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+
+<table *ngIf="!pending" style="width: 100%;">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Quantity</th>
+    <th>Sell</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let portfolio of portfolios">
+    <td>{{portfolio.id}}</td>
+    <td>{{portfolio.name}}</td>
+    <td>{{portfolio.category}}</td>
+    <td>{{portfolio.price}}</td>
+    <td>{{portfolio.quantity}}</td>
+    <td><input type="number" id="quantity" name="quantity" placeholder="0" min="0" max="{{portfolio.quantity}}" #quantity></td>
+    <td><button (click)="onSell(portfolio, quantity.value)">Sell</button></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,8 +1,5 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import {
-  LoadMarketsCategories,
-  LoadMarketsCategoriesError,
-  LoadMarketsCategoriesSuccess,
   MarketsActionsUnion,
   MarketsActionTypes
 } from '../actions/markets.actions';

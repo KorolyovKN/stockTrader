@@ -7,6 +7,10 @@ const routes: Routes = [
     path: 'markets',
     loadChildren: 'src/app/markets/markets.module#MarketsModule'
   },
+  {
+    path: 'portfolios',
+    loadChildren: 'src/app/portfolios/portfolios.module#PortfoliosModule'
+  }
 ];
 
 @NgModule({

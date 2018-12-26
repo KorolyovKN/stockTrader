@@ -36,7 +36,9 @@ export class MarketsEffects {
     map((action) => action.payload),
     switchMap((params: LoadListPayload) => this.marketsService.loadMarkets(params)
       .pipe(
-        map((payload: LoadListSuccessPayload<Market>) => new LoadMarketsSuccess(payload)),
+        map((payload: LoadListSuccessPayload<Market>) => {
+          return new LoadMarketsSuccess(payload);
+        }),
         catchError((e) => of(new LoadMarketsError(e.error.error)))
       ))
   );
@@ -67,7 +69,7 @@ export class MarketsEffects {
     ofType<MarketPurchase>(MarketsActionTypes.MarketPurchaseSuccess),
     map((action) => {
       const portfolio = action.payload;
-      const decrease = portfolio.price * portfolio.quantity;
+      const decrease = +portfolio.price * +portfolio.quantity;
       return new BalanceDecrease(decrease);
     })
   );
