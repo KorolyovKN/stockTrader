@@ -6,6 +6,7 @@ import * as fromMarkets from '../../reducers';
 import {LoadListPayload, Filters} from '../../../shared/models/list';
 import {Portfolio} from '../../../shared/models/portfolio';
 import {id} from '../../../shared/utils/id';
+import { getUserBalance } from '../../../reducers';
 
 @Component({
   selector: 'app-markets',
@@ -18,6 +19,9 @@ export class MarketsComponent implements OnInit {
   error$ = this.store.pipe(select(fromMarkets.getMarketsError));
   count$ = this.store.pipe(select(fromMarkets.getMarketsCount));
   categories$ = this.store.pipe(select(fromMarkets.getMarketsCategories));
+  userBalance$ = this.store.pipe(select(getUserBalance));
+  userBalance: number;
+
 
 
   constructor(private store: Store<any>) { }
@@ -25,18 +29,26 @@ export class MarketsComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new MarketsActions.LoadMarkets());
     this.store.dispatch(new MarketsActions.LoadMarketsCategories());
+    this.userBalance$.subscribe((balance) => {
+      this.userBalance = balance;
+    });
   }
 
   onPushase($event) {
-    const portfolio: Portfolio = {
-      id: id(),
-      marketId: $event.market.id,
-      name: $event.market.name,
-      category: $event.market.category,
-      price: $event.market.price,
-      quantity: $event.quantity,
-    };
-    this.store.dispatch(new MarketsActions.MarketPurchase(portfolio));
+    if (this.userBalance >= ($event.price * $event.quantity)) {
+      const portfolio: Portfolio = {
+        id: id(),
+        marketId: $event.market.id,
+        name: $event.market.name,
+        category: $event.market.category,
+        price: $event.market.price,
+        quantity: $event.quantity,
+      };
+      this.store.dispatch(new MarketsActions.MarketPurchase(portfolio));
+    } else {
+      console.log('not enough money');
+    }
+
   }
 
   onReload($event) {

@@ -1,6 +1,6 @@
 {
   "userBalance": {
-    "balance": 5584.79
+    "balance": 6137.78
   },
   "stocksCategories": [
     "Consumer Services",
@@ -34,14 +34,6 @@
       "quantity": 1
     },
     {
-      "id": 3865,
-      "marketId": 3,
-      "name": "Fortis Inc.",
-      "category": "Public Utilities",
-      "price": "122.28",
-      "quantity": 1
-    },
-    {
       "id": 2951,
       "marketId": 4,
       "name": "National General Holdings Corp",
@@ -66,28 +58,36 @@
       "quantity": "1"
     },
     {
-      "id": 3491,
-      "marketId": 7,
-      "name": "Summit Hotel Properties, Inc.",
-      "category": "Consumer Services",
-      "price": "301.91",
-      "quantity": 2
-    },
-    {
-      "id": 4157,
-      "marketId": 5,
-      "name": "Bloomin&#39; Brands, Inc.",
-      "category": "Consumer Services",
-      "price": "98.54",
-      "quantity": 3
-    },
-    {
       "id": 4158,
       "marketId": 6,
       "name": "Tivity Health, Inc.",
       "category": "Health Care",
       "price": "255.55",
-      "quantity": 27
+      "quantity": 24
+    },
+    {
+      "id": 4505,
+      "marketId": 6,
+      "name": "Tivity Health, Inc.",
+      "category": "Health Care",
+      "price": "255.55",
+      "quantity": "2"
+    },
+    {
+      "id": 955,
+      "marketId": 4,
+      "name": "National General Holdings Corp",
+      "category": "Finance",
+      "price": "362.14",
+      "quantity": "1"
+    },
+    {
+      "id": 4861,
+      "marketId": 4,
+      "name": "National General Holdings Corp",
+      "category": "Finance",
+      "price": "362.14",
+      "quantity": 1
     }
   ],
   "stocks": [
