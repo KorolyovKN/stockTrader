@@ -12,7 +12,7 @@ export interface State extends fromRoot.State {
 }
 
 export const reducers: ActionReducerMap<MarketsState> = {
-  markets: fromMarkets.redicer,
+  markets: fromMarkets.reducer,
 };
 
 export const getMarketsState = createFeatureSelector<State, MarketsState>('markets');

@@ -28,7 +28,7 @@ export const initialState: State = marketsEntityAdapter.getInitialState({
   categories: [],
 });
 
-export function redicer(state = initialState, action: MarketsActionsUnion): State {
+export function reducer(state = initialState, action: MarketsActionsUnion): State {
   switch (action.type) {
     case MarketsActionTypes.LoadMarkets: {
       return {
