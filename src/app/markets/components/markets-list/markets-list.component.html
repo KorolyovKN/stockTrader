@@ -28,7 +28,7 @@
     <td>{{market.category}}</td>
     <td>{{market.price}}</td>
     <td><input type="number" id="quantity" name="quantity" placeholder="0" min="0" #quantity></td>
-    <td><button (click)="onPurchase(market, quantity.value)">buy</button></td>
+    <td><button class="purchaseBtn" (click)="onPurchase(market, quantity.value)">buy</button></td>
   </tr>
   </tbody>
 </table>

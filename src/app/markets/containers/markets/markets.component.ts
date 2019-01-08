@@ -7,6 +7,8 @@ import {LoadListPayload, Filters} from '../../../shared/models/list';
 import {Portfolio} from '../../../shared/models/portfolio';
 import {id} from '../../../shared/utils/id';
 import { getUserBalance } from '../../../reducers';
+import {Observable} from 'rxjs';
+import {Market} from '../../models/market';
 
 @Component({
   selector: 'app-markets',
@@ -14,12 +16,12 @@ import { getUserBalance } from '../../../reducers';
 })
 export class MarketsComponent implements OnInit {
 
-  markets$ = this.store.pipe(select(fromMarkets.getMarkets));
+  markets$: Observable<Array<Market>>
   pending$ = this.store.pipe(select(fromMarkets.getMarketsPending));
   error$ = this.store.pipe(select(fromMarkets.getMarketsError));
   count$ = this.store.pipe(select(fromMarkets.getMarketsCount));
   categories$ = this.store.pipe(select(fromMarkets.getMarketsCategories));
-  userBalance$ = this.store.pipe(select(getUserBalance));
+  userBalance$: Observable<number>;
   userBalance: number;
 
 
@@ -29,6 +31,8 @@ export class MarketsComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new MarketsActions.LoadMarkets());
     this.store.dispatch(new MarketsActions.LoadMarketsCategories());
+    this.markets$ = this.store.pipe(select(fromMarkets.getMarkets));
+    this.userBalance$ = this.store.pipe(select(getUserBalance));
     this.userBalance$.subscribe((balance) => {
       this.userBalance = balance;
     });
@@ -37,7 +41,7 @@ export class MarketsComponent implements OnInit {
   onPushase($event) {
     if (this.userBalance >= ($event.price * $event.quantity)) {
       const portfolio: Portfolio = {
-        id: id(),
+        id: $event.id || id(),
         marketId: $event.market.id,
         name: $event.market.name,
         category: $event.market.category,
